@@ -12,7 +12,19 @@ Welcome to the interactive Google Apps Script workshop! In this workshop, we wil
    - Click on `Extensions` in the Google Docs menu bar.
    - Select `Apps Script` to open the script editor in a new tab.
 
-3. **Create a Function to Capitalize Sentences**:
+3. **Create a Function to Lowercase All Words**:
+   - In the Apps Script editor, paste the following code and save it.
+   - This function will convert all the text in the document to lowercase.
+
+   ```javascript
+   function lowercaseAllWords() {
+     var body = DocumentApp.getActiveDocument().getBody();
+     var text = body.getText();
+     var lowercaseText = text.toLowerCase();
+     body.setText(lowercaseText);
+   }
+
+4. **Create a Function to Capitalize Sentences**:
    - In the Apps Script editor, paste the following code and save it.
    - This function will capitalize the first letter of each sentence in the document.
 
@@ -36,6 +48,7 @@ function onOpen() {
   var ui = DocumentApp.getUi();
   ui.createMenu('My Custom Menu')
     .addItem('Capitalize Sentences', 'capitalizeSentences')
+    .addItem('Lowercase all words', 'lowercaseAllWords')
     .addToUi();
 }
 ```
